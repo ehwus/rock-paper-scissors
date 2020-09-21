@@ -21,15 +21,11 @@
                 return "draw"
             } else if (p1 === 'rock' && p2 == 'paper') {
                 return false
-            } else if (p1 === 'rock' && p2 === 'scissors') {
-                return true
-            } else if (p1 === 'paper' && p2 === 'rock') {
-                return true
             } else if (p1 === 'paper' && p2 === 'scissors') {
                 return false
             } else if (p1 === 'scissors' && p2 === 'rock') {
                 return false
-            }  else if (p1 === 'scissors' && p2 == 'paper') {
+            }  else {
                 return true
             }
         }
