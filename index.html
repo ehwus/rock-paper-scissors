@@ -15,27 +15,46 @@
             return options[Math.round(Math.random()*2)]
         }
 
-        // return string stating if player 1's choice beats player 2's
+        // return true if player 1's choice beats player 2's, false if p2 wins, and "draw" if neither.
         function playRound(p1, p2) {
             if (p1 === p2) {
-                return "It's a draw!"
+                return "draw"
             } else if (p1 === 'rock' && p2 == 'paper') {
-                return "You lose! Paper covers rock."
+                return false
             } else if (p1 === 'rock' && p2 === 'scissors') {
-                return "You win! Rock smashes scissors."
+                return true
             } else if (p1 === 'paper' && p2 === 'rock') {
-                return "You win! Paper covers rock."
+                return true
             } else if (p1 === 'paper' && p2 === 'scissors') {
-                return "You lose! Scissors cut paper."
+                return false
             } else if (p1 === 'scissors' && p2 === 'rock') {
-                return "You lose! Rock smashes scissors."
+                return false
             }  else if (p1 === 'scissors' && p2 == 'paper') {
-                return "You win! Scissors cut paper."
+                return true
             }
         }
 
         // take input from player
-        let guess = prompt("Rock, paper, or scissors?").toLowerCase()
+        guess = prompt("Rock, paper, or scissors?").toLowerCase()
+
+        // play a 5 round game of rock paper scissors, declare winner each round and final winner in console
+        function game() {
+            // declare space for guess and scores to go
+            let guess;
+            let playerScore;
+            let computerScore;
+
+            // initiate loop to go 5 times
+            for (let i = 0; i < 5; i++) {
+                console.log(i)
+            }
+
+            // take player input
+            // play round against computer
+            // log winner of round in console and in win counter
+            
+            // after 5 rounds, check to see who won
+        }
         
     </script>
     
