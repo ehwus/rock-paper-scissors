@@ -8,12 +8,35 @@
 <body>
     <script>
         // all available options for the game
-        const options = ['rock', 'paper', 'scissors'];
+        const options = ['rock', 'paper', 'scissors']
         
         // use random number (0-2) to return one of the valid options
         function computerPlay() {
-            return options[Math.round(Math.random()*2)];
+            return options[Math.round(Math.random()*2)]
         }
+
+        // return string stating if player 1's choice beats player 2's
+        function playRound(p1, p2) {
+            if (p1 === p2) {
+                return "It's a draw!"
+            } else if (p1 === 'rock' && p2 == 'paper') {
+                return "You lose! Paper covers rock."
+            } else if (p1 === 'rock' && p2 === 'scissors') {
+                return "You win! Rock smashes scissors."
+            } else if (p1 === 'paper' && p2 === 'rock') {
+                return "You win! Paper covers rock."
+            } else if (p1 === 'paper' && p2 === 'scissors') {
+                return "You lose! Scissors cut paper."
+            } else if (p1 === 'scissors' && p2 === 'rock') {
+                return "You lose! Rock smashes scissors."
+            }  else if (p1 === 'scissors' && p2 == 'paper') {
+                return "You win! Scissors cut paper."
+            }
+        }
+
+        // take input from player
+        let guess = prompt("Rock, paper, or scissors?").toLowerCase()
+        
     </script>
     
 </body>
