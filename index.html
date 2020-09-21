@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+        // all available options for the game
+        const options = ['rock', 'paper', 'scissors'];
+        
+        // use random number (0-2) to return one of the valid options
+        function computerPlay() {
+            return options[Math.round(Math.random()*2)];
+        }
+    </script>
+    
+</body>
+</html>
