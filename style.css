@@ -24,30 +24,30 @@
 }
 
 /* Game */
-.game {
+.buttons {
     padding: 0 100px;
     text-align: center;
     align-items: center;
     margin: auto;
 }
 
-.game .btn {
+.buttons .btn {
     border: 1px solid lightgreen;
     font-weight: bold;
     outline: none;
     background: lightgreen;
     color: black;
-    padding: 15px 18px 15px 18px;
+    padding: 30px 50px 30px 50px;
     border-radius: 7.5%;
     font-size: large;
+    margin-right: 30px;
 }
 
-.game .btn:hover {
+.buttons .btn:hover {
     border: 5px solid black;
 }
 
-/* score element hidden until game started */
-.game .score {
+.score {
     padding: 100px;
-    visibility: hidden;
+    text-align: center;
 }

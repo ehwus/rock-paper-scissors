@@ -23,6 +23,9 @@ function playRound(p1, p2) {
 
 // play a 5 round game of rock paper scissors, declare winner each round and final winner in console
 function game() {
+    // clear gamespace
+    gameSpace.innerHTML = "";
+
     // declare space for guess, scores and result to go
     let guess;
     let playerScore = 0;
@@ -31,6 +34,8 @@ function game() {
 
     // initiate loop to go 5 times for 5 rounds
     for (let i = 0; i < 5; i++) {
+        // show player score, updating each round
+        scoreDiv.textContent = `You: ${playerScore} Computer: ${computerScore}`;
         // take player input
         guess = prompt("Rock, paper, or scissors?").toLowerCase()
         // play round against computer
@@ -57,6 +62,17 @@ function game() {
     }
 }
 
-// start game on button press
+// add references to different areas of the document
 const startButton = document.querySelector('#start');
-startButton.addEventListener('click', function() { game() }, false);
+const scoreDiv = document.querySelector(".score");
+const gameSpace = document.querySelector(".buttons")
+
+
+// start game on button press
+window.addEventListener('keydown', function(e) {
+    if (e.code === 'KeyR') {
+        game();
+    } else {
+        return;
+    }
+})
