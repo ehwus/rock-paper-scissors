@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background: lightblue;
+}
+
+/* Header */
+.main-header {
+    align-items: center;
+    padding: 100px;
+    margin: auto;
+    text-align: center;
+}
+
+.main-header h1 {
+    background: lightpink;
+    padding: 20px 0;
+    border: thick solid black;
+    border-radius: 10px;
+}
+
+/* Game */
+.game {
+    padding: 0 100px;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+}
+
+.game .btn {
+    border: 1px solid lightgreen;
+    font-weight: bold;
+    outline: none;
+    background: lightgreen;
+    color: black;
+    padding: 15px 18px 15px 18px;
+    border-radius: 7.5%;
+}
+
+.game .btn:hover {
+    border: 5px solid black;
+}
+
+/* score element hidden until game started */
+.game .score {
+    padding: 100px;
+    visibility: hidden;
+}
