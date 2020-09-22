@@ -56,3 +56,7 @@ function game() {
         console.log("It was a draw.")
     }
 }
+
+// start game on button press
+const startButton = document.querySelector('#start');
+startButton.addEventListener('click', function() { game() }, false);
