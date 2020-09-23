@@ -41,7 +41,7 @@ function playRound(p1, p2) {
 // update scoreDiv with current values and header with round number
 function updateScoreAndRounds() {
     scoreDiv.textContent = `You: ${playerScore} Computer: ${computerScore}`;
-    header.textContent = `${winner} wins round ${round-1}! Round ${round}`;
+    header.textContent = `${winner} wins round ${round - 1}! Round ${round}`;
 }
 
 // returns 'Player' or 'Computer' if winner, false if no winner yet
@@ -50,12 +50,29 @@ function checkForWinner() {
     return (playerScore >= 5 || computerScore >= 5)
 }
 
+// declare the winner
+function declareWinner() {
+    if (computerScore > playerScore) {
+        finalWinner = 'Computer';
+    } else {
+        finalWinner = 'Player';
+    }
+    header.textContent = `${finalWinner} secures the ULTIMATE VICTORY!`;
+}
+
+// end of round - updateScoreAndRounds, then checkForWinner: if true declareWinner and reset
+function endRound() {
+    updateScoreAndRounds();
+    if (checkForWinner()) {
+        declareWinner();
+        reset();
+    }
+}
+
 // resets game
 function reset() {
     // todo
 }
-
-
 
 // MAIN
 
@@ -66,76 +83,12 @@ for (const button of buttons) {
             playerScore += 1;
             round += 1;
             winner = "Player";
-            updateScoreAndRounds();
+            endRound()
         } else {
             computerScore += 1
             round += 1;
             winner = "Computer";
-            updateScoreAndRounds();
+            endRound()
         }
-    })}
-
-// check for winner
-checkForWinner()
-
-// // play a 5 round game of rock paper scissors, declare winner each round and final winner
-// function game() {
-//     header.textContent = "Round 1";
-
-//     // declare variables for guess, scores and result to go
-//     let guess;
-//     let playerScore = 0;
-//     let computerScore = 0;
-//     let result;
-//     // boolean to control flow of game
-//     let keepGoing = true;
-
-//     // initiate loop to go 5 times for 5 rounds
-//     for (let i = 0; i < 5; i++) {
-//         // show player score, updating each round
-//         header.textContent = `Round ${i + 1}`;
-//         scoreDiv.textContent = `You: ${playerScore} Computer: ${computerScore}`;
-
-//         while (keepGoing) {
-//             for (const button of buttons) {
-//                 button.addEventListener('click', function (event) {
-//                     playRound(button.id, computerPlay);
-//                     keepGoing = false;
-//                 })
-//             }
-//         }
-
-//     }
-
-
-//     // play round against computer if choice made
-//     result = playRound(guess, computerPlay())
-//     // log winner of round in console and in win counter
-//     if (result === "draw") {
-//         console.log("It's a draw!")
-//     } else if (result === true) {
-//         console.log("You win this round!")
-//         playerScore += 1
-//     } else if (result === false) {
-//         console.log("You lose this round!")
-//         computerScore += 1
-//     }
-
-//     // after 5 rounds, check to see who won
-//     if (computerScore > playerScore) {
-//         console.log("You lose the game.")
-//     } else if (playerScore > computerScore) {
-//         console.log("You won the game!")
-//     } else if (playerScore === computerScore) {
-//         console.log("It was a draw.")
-//     }
-// }
-
-// // start game on button press
-// window.addEventListener('keydown', function (e) {
-//     if (e.code === 'KeyR') {
-//         game();
-//     } else {
-//         return;
-//     }
-// })
+    })
+}
