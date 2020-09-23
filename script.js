@@ -1,17 +1,22 @@
-// constants
+// CONSTANTS
+
 const options = ['rock', 'paper', 'scissors']
 const scoreDiv = document.querySelector(".score");
 const gameSpace = document.querySelector(".buttons");
 const buttons = document.querySelectorAll('.btn');
 const header = document.querySelector(".main-header h1");
 
-// variables
+// VARIABLES
+
 let guess;
 let playerScore = 0;
 let computerScore = 0;
 let result;
 let round = 1;
 let winner;
+let finalWinner;
+
+// FUNCTIONS
 
 // use random number (0-2) to return one of the valid options
 function computerPlay() {
@@ -39,6 +44,21 @@ function updateScoreAndRounds() {
     header.textContent = `${winner} wins round ${round-1}! Round ${round}`;
 }
 
+// returns 'Player' or 'Computer' if winner, false if no winner yet
+// a winner is a player with 5 points or more
+function checkForWinner() {
+    return (playerScore >= 5 || computerScore >= 5)
+}
+
+// resets game
+function reset() {
+    // todo
+}
+
+
+
+// MAIN
+
 // play round on click of button, update score
 for (const button of buttons) {
     button.addEventListener('click', function (event) {
@@ -54,6 +74,9 @@ for (const button of buttons) {
             updateScoreAndRounds();
         }
     })}
+
+// check for winner
+checkForWinner()
 
 // // play a 5 round game of rock paper scissors, declare winner each round and final winner
 // function game() {
